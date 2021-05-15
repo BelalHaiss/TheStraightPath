@@ -1,0 +1,46 @@
+<% layout('layout/boilerplate')%>
+
+<form
+  id="newform"
+  method="POST"
+  action="/register"
+  class="needs-validation"
+  novalidate
+>
+  <div class="form-group">
+    <label for="username">Enter Your Username </label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      name="username"
+      placeholder="Enter The username name"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="email">enter Your email </label>
+    <input
+      type="email"
+      class="form-control"
+      name="email"
+      id="email"
+      placeholder="Enter The email Text"
+      required
+    />
+    <div class="invalid-feedback">Please Check Your Mail again.</div>
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="form-group">
+    <label for="password"> Enter your password </label>
+    <input
+      type="text"
+      class="form-control"
+      name="password"
+      id="password"
+      placeholder="Enter The password Text"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

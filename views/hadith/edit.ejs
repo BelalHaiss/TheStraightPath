@@ -1,0 +1,40 @@
+<% layout('layout/boilerplate')%>
+
+    <form action="/Hadith/<%=hadith.id%>?_method=patch" method="post" class="needs-validation" novalidate
+        enctype="multipart/form-data">
+
+        <div id="hadith">
+            <div id="hadith__content" class="bg-light">
+                <h3 class="hadith__content--narrator">
+                    <%= hadith.narrator %>
+                </h3>
+                <input type="text" id="name" lang='ar' dir="rtl" class="form-control" name="Hadith[narrator]"
+                    placeholder="<%= hadith.hadith %>" value="<%= hadith.narrator %> " required>
+                <label class="form-check-label text-center text-primary  w-100" for="name"> Update The Hadith Text
+                </label>
+                <div class="form-group">
+                    <label for="image">image Text</label>
+                    <input type="file" class="form-control" multiple name="image" id="image"
+                        placeholder="Enter The Hadith Text">
+                </div>
+                <input type="text" id="name" lang='ar' dir="rtl" class="form-control" name="Hadith[hadith]"
+                    placeholder="<%= hadith.hadith %>" value="<%= hadith.hadith %> " required>
+                <label class="form-check-label text-center text-primary mt-4  w-100" for="name">Update The Hadith
+                    Meaning </label>
+                <input type="text" lang='ar' dir="rtl" class="form-control" name="Hadith[description]"
+                    placeholder="<%= hadith.description %>" value="<%= hadith.description %>" required>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="mb-3 ">
+                <% hadith.images.forEach((img,i)=>{ %>
+                    <img src="<%= img.thumbnail %> " alt="" class=" d-inline img-thumbnail">
+                    <div class="form-group d-inline ">
+                        <input type="checkbox" id="image-<%= i %>" name="deleteImages[]" value="<%= img.filename %>">
+                        <label for="image-<%= i %>"> delete an image</label>
+
+                    </div>
+                    <%}) %>
+            </div>
+        </div>
+
+    </form>
