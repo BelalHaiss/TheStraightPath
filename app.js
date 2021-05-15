@@ -30,10 +30,9 @@ const {urls} = require('./utilities/url');
 const { response } = require('express');
 const MongoStore = require('connect-mongo');
 
-dbUrl = process.env.dbUrl
-dbLocal = "mongodb://localhost:27017/Ahadith"
+const dbUrl = process.env.dbUrl || "mongodb://localhost:27017/Ahadith"
 mongoose
-  .connect(dbLocal , {
+  .connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -77,9 +76,10 @@ app.use(
       },
   })
 );
+const secret = process.env.secret || '@#%%@#EDSsdfsdkfdkdk_s'
 const store = new MongoStore({
-  mongoUrl: dbLocal,
-  secret: 'blahblah',
+  mongoUrl: dbUrl,
+  secret,
   touchAfter: 24 * 60 * 60,
 });
 
@@ -91,7 +91,7 @@ store.on("error", function (e) {
 const sessionConfig = {
   store,
   name: 'session' ,
-  secret: "thisshouldbesomethingbetter",
+  secret,
   resave: false,
   saveUninitialized: true,
   cookie: {

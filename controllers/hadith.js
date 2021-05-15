@@ -5,7 +5,6 @@ const { isAuthorizedForReview } = require("../utilities/middleware");
 const {imageEditValidation} = require('../utilities/joi')
 const {cloudinary} = require('../cloudinary')
 const sanitizeHtml = require('sanitize-html');
-const fetch = require('node-fetch')
 const axios = require('axios');
 
 
