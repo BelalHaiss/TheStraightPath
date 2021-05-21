@@ -9,29 +9,23 @@
 </script>
 
 <% if(success && success.length) { %>
-<div
-  class="alert flash-alert alert-success alert-dismissible fade show"
-  role="alert"
->
-  <strong><%= success %> </strong>
-  <button
-    type="button"
-    class="btn-close"
-    data-bs-dismiss="alert"
-    aria-label="Close"
-  ></button>
-</div>
-<% } %> <% if(error && error.length) { %>
-<div
-  class="alert flash-alert alert-danger alert-dismissible fade show"
-  role="alert"
->
-  <strong><%= error %> </strong>
-  <button
-    type="button"
-    class="btn-close"
-    data-bs-dismiss="alert"
-    aria-label="Close"
-  ></button>
-</div>
-<% } %>
+
+  <div class="alert alert-success flash-alert alert-dismissible fade show" role="alert">
+    <strong>
+      <%= success %>
+    </strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+
+  <% } %>
+    <% if(error && error.length) { %>
+
+      <div class="alert alert-danger flash-alert alert-dismissible fade show" role="alert">
+        <strong>
+          <%= error %>
+        </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      <% } %>

@@ -1,27 +1,33 @@
-<%- layout('layout/boilerplate') %> 
-    <div id="hadith" class="container" >
+<%- layout('layout/boilerplate') %>
+    <div id="hadith" class="container">
         <div class="row">
             <div class="col">
                 <% for (let t of Hadiths) { %>
-                    <div id="hadith__content" class="bg-light">
-
-                        <h3 class="hadith__content--narrator"><%= t.narrator %> </h3>
-                        <p lang='ar'dir="rtl" class="hadith__content--text"><%= t.hadith %> </p>
+                    <div id="hadith__content" class="hadith__content__narrator">
+                        <h3 class="hadith__content__narrator">
+                            <%= t.narrator %>
+                        </h3>
+                        <p lang='ar' dir="rtl" class="hadith__content--text">
+                            <%= t.hadith %>
+                        </p>
                         <div class="links">
                             <div class="links__links">
-                            <a class="btn btn-outline-primary btn-sm" href="/hadith/<%= t.id %> " role="button">Show More</a>
-                            <a class="btn btn-outline-warning btn-sm" href="/hadith/<%= t.id %>/edit " role="button">Edit The Hadith</a>
-                            <form class="d-inline-block" action="/hadith/<%= t.id %>?_method=delete" method="post">
-                                <button class="btn btn-outline-danger btn-sm"  role="button">Delete The Hadith</button>
-                            </form>
-                        </div>
+                                <a class="btn btn-outline-primary btn-sm" href="/hadith/<%= t.id %> " role="button">Show
+                                    More</a>
+                                <a class="btn btn-outline-warning btn-sm" href="/hadith/<%= t.id %>/edit "
+                                    role="button">Edit The Hadith</a>
+                                <form class="d-inline-block" action="/hadith/<%= t.id %>?_method=delete" method="post">
+                                    <button class="btn btn-outline-danger btn-sm" role="button">Delete The
+                                        Hadith</button>
+                                </form>
                             </div>
                         </div>
+                    </div>
 
-                    <% } %> 
-                    
-                    
+                    <% } %>
+
+
             </div>
-    
-        </div>  
-      </div>
+
+        </div>
+    </div>

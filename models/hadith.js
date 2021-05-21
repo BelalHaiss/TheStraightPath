@@ -4,13 +4,15 @@ const Schema = mongoose.Schema;
 
 const Review = require("./review");
 const imageSchema = new Schema({
-  
-  url:String,
-    filename:String 
-})
-imageSchema.virtual('thumbnail').get(function() {
-  return this.url.replace('/upload','/upload/w_200')
-})
+  url: String,
+  filename: String,
+});
+imageSchema.virtual("thumbnail").get(function () {
+  return this.url.replace("/upload", "/upload/w_200");
+});
+imageSchema.virtual("fit").get(function () {
+  return this.url.replace("/upload", "/upload/w_400,c_fit");
+});
 const HadithSchema = new Schema({
   narrator: {
     type: String,
@@ -20,8 +22,7 @@ const HadithSchema = new Schema({
     type: String,
     // required: true
   },
-  images: [imageSchema] 
-,
+  images: [imageSchema],
   description: {
     type: String,
     // required: true
@@ -43,6 +44,5 @@ HadithSchema.post("findOneAndDelete", async (data) => {
     await Review.deleteMany({_id: {$in: data.reviews}});
   }
 });
-
 
 module.exports = mongoose.model("Hadith", HadithSchema);

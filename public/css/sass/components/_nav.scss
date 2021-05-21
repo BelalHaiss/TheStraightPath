@@ -1,0 +1,47 @@
+nav.navbar {
+  width: 100%;
+  flex-wrap: wrap;
+}
+#search-hadith {
+  direction: rtl;
+  padding: 0.2rem 2rem;
+  font-family: inherit;
+  color: rgba(0, 0, 0, 0.828);
+  font-weight: bold;
+  border-radius: 3px;
+  &:focus {
+    // outline: none !important;
+    border: none !important;
+    // border-bottom: 3px solid $color-primary-dark !important;
+    box-shadow: 0 3px 0.4px $color-primary-dark;
+  }
+}
+a.navbar-brand {
+  background-image: linear-gradient($color-primary-light, $color-primary-dark);
+  -webkit-background-clip: text !important;
+  background-clip: text;
+  color: transparent !important;
+  font-size: 2rem;
+  transform: scale(0.9);
+
+  transition: all 0.3s;
+  &:hover {
+    box-shadow: 0 5px 3px $color-primary-dark;
+    transform: scale(1.2);
+  }
+}
+
+span.navbar-brand {
+  background-image: linear-gradient($color-primary-light, $color-primary-dark);
+  -webkit-background-clip: text !important;
+  background-clip: text;
+  color: transparent !important;
+  font-size: 1rem;
+  transform: scale(0.9);
+
+  transition: all 0.3s;
+  &:hover {
+    box-shadow: 0 5px 3px $color-primary-dark;
+    transform: scale(1.2);
+  }
+}

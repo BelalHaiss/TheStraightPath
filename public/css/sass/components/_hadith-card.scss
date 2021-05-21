@@ -1,0 +1,10 @@
+div#hadith__content {
+  padding: 10px;
+  outline: 0.3rem solid #55c57a;
+  margin-bottom: 30px;
+}
+div.hadith__content {
+  &__narrator {
+    text-align: center;
+  }
+}

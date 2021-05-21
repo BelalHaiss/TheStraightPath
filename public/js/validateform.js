@@ -2,6 +2,7 @@
   "use strict";
 
   const forms = document.querySelectorAll(".needs-validation");
+
   for (let form of forms) {
     form.addEventListener(
       "submit",
