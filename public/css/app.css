@@ -63,6 +63,11 @@ body {
   .paragraph:not(:last-child) {
     margin-bottom: 3rem; }
 
+a#editInfo {
+  margin-left: auto;
+  font-size: 1.5rem;
+  float: right !important; }
+
 #mainhead {
   color: #184e77; }
 
@@ -194,3 +199,8 @@ span.navbar-brand {
   span.navbar-brand:hover {
     box-shadow: 0 5px 3px #28b485;
     transform: scale(1.2); }
+
+div#alert {
+  text-align: center !important;
+  font-size: 1.5rem !important;
+  text-transform: capitalize; }

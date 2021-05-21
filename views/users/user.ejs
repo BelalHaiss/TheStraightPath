@@ -1,0 +1,22 @@
+<% layout('layout/boilerplate')%>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 profile__img">
+                <img src="" alt="profile Pic">
+            </div>
+            <div class="col-6 d-flex flex-column justify-content-center">
+                <a href="" class="btn btn-secondary" id="editInfo">
+                    Edit your info
+                </a>
+                <h2 class="text-primary">username: <p class="text-muted d-inline">
+                        <%=currentUser.username%>
+                    </p>
+                </h2>
+                <h2 class="text-primary">email: <p class="d-inline text-muted">
+                        <%= currentUser.email %>
+                    </p>
+                </h2>
+            </div>
+        </div>
+    </div>

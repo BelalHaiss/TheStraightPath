@@ -30,8 +30,7 @@ const {urls} = require("./utilities/url");
 const {response} = require("express");
 const MongoStore = require("connect-mongo");
 
-// process.env.dbUrl ||
-const dbUrl = "mongodb://localhost:27017/Ahadith";
+const dbUrl = process.env.dbUrl || "mongodb://localhost:27017/Ahadith";
 mongoose
   .connect(dbUrl, {
     useNewUrlParser: true,
@@ -50,8 +49,8 @@ mongoose
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
-// app.use(express.json()); // for parsing application/json
-// app.use(express.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
@@ -119,6 +118,10 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
+  req.flash(
+    "success",
+    "welcome to our lovely website please register now, add hadith and Enrich us  :) "
+  );
   res.render("home");
 });
 

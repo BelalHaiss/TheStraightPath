@@ -10,6 +10,7 @@ const axios = require("axios");
 
 module.exports.index = async (req, res) => {
   const Hadiths = await HadithModel.find({});
+
   res.render("hadith/index", {Hadiths});
 };
 

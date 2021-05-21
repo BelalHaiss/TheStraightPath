@@ -1,3 +1,5 @@
-const sanitizeHtml = require('sanitize-html');
+const mongoose = require("mongoose");
+const User = require("./models/user");
 
-console.log(sanitizeHtml("<img src=x onerror=alert('img') /> sadasdas"));
+const foundUser = User.findOne({username: "mam"}).then((out) => out);
+console.log(foundUser);
