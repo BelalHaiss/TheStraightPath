@@ -37,15 +37,11 @@
   max-width: 700px;
   margin: 0 auto;
 }
-div.links {
-  padding-top: 5%;
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
-}
+
 #hadith__content {
   margin-bottom: 20px;
+  animation: cardEnterance 900ms ease-out;
+  animation-fill-mode: backwards;
 }
 
 div#hadithCarousel {
@@ -58,4 +54,15 @@ div.carousel-item img {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+@keyframes cardEnterance {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 }

@@ -13,7 +13,11 @@ const HadithModel = require("../models/hadith");
 const theHadith = require("../controllers/hadith");
 const multer = require("multer");
 const {storage, cloudinary} = require("../cloudinary");
-const upload = multer({storage});
+const fileSize = {
+  fileSize: 1024 * 1024 * 2,
+  files: 6,
+};
+const upload = multer({storage, limits: fileSize});
 const axios = require("axios");
 let tempData = {};
 

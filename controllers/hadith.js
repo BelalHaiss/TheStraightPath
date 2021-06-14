@@ -1,6 +1,6 @@
 const e = require("express");
 const {array} = require("joi");
-const HadithModel = require("../models/hadith");
+const {HadithModel} = require("../models/hadith");
 const {isAuthorizedForReview} = require("../utilities/middleware");
 const {imageEditValidation} = require("../utilities/joi");
 const {cloudinary} = require("../cloudinary");

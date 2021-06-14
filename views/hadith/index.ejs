@@ -14,12 +14,16 @@
                             <div class="links__links">
                                 <a class="btn btn-outline-primary btn-sm" href="/hadith/<%= t.id %> " role="button">Show
                                     More</a>
-                                <a class="btn btn-outline-warning btn-sm" href="/hadith/<%= t.id %>/edit "
-                                    role="button">Edit The Hadith</a>
-                                <form class="d-inline-block" action="/hadith/<%= t.id %>?_method=delete" method="post">
-                                    <button class="btn btn-outline-danger btn-sm" role="button">Delete The
-                                        Hadith</button>
-                                </form>
+
+                                <% if(currentUser && t.userName.equals(currentUser._id)) {%>
+                                    <a class="btn btn-outline-warning btn-sm" href="/hadith/<%= t.id %>/edit "
+                                        role="button">Edit The Hadith</a>
+                                    <form class="d-inline-block" action="/hadith/<%= t.id %>?_method=delete"
+                                        method="post">
+                                        <button class="btn btn-outline-danger btn-sm" role="button">Delete The
+                                            Hadith</button>
+                                    </form>
+                                    <% } %>
                             </div>
                         </div>
                     </div>

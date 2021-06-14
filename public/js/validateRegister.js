@@ -1,27 +1,48 @@
 document.querySelector("#email").addEventListener("blur", validateEmail);
-document.querySelector("#password").addEventListener("blur", validatePassword);
-function validateEmail(e) {
-  const email = document.querySelector("#email");
-  const re = /^([a-zA-Z0-9_\-?\.?]){3,}@([a-zA-Z]){3,}\.([a-zA-Z]){2,5}$/;
+if (document.querySelector("#password")) {
+  document
+    .querySelector("#password")
+    .addEventListener("blur", validatePassword);
+}
+document.querySelector("#username").addEventListener("blur", validateUsername);
 
-  if (re.test(email.value)) {
-    email.classList.remove("is-invalid");
+const reSpaces = /^\S*$/;
+
+function validateUsername(e) {
+  const username = document.querySelector("#username");
+
+  if (reSpaces.test(username.value)) {
+    username.classList.remove("is-invalid", "invalidStyle");
     return true;
   } else {
-    email.classList.add("is-invalid");
+    username.classList.add("is-invalid", "invalidStyle");
     return false;
   }
 }
 
-function validatePassword() {
-  const password = document.querySelector("#password");
-  const re = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?=.*[!@#$%^&*])/;
-  if (re.test(password.value)) {
-    password.classList.remove("is-invalid");
+function validateEmail(e) {
+  const email = document.querySelector("#email");
+  const re = /^([a-zA-Z0-9_\-?\.?]){3,}@([a-zA-Z]){3,}\.([a-zA-Z]){2,5}$/;
+
+  if (reSpaces.test(email.value) && re.test(email.value)) {
+    email.classList.remove("is-invalid", "invalidStyle");
     return true;
   } else {
-    password.classList.add("is-invalid");
+    email.classList.add("is-invalid", "invalidStyle");
     return false;
+  }
+}
+if (document.querySelector("#password")) {
+  function validatePassword() {
+    const password = document.querySelector("#password");
+    const re = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(?=.*[!@#$%^&*])/;
+    if (re.test(password.value) && reSpaces.test(password.value)) {
+      password.classList.remove("is-invalid", "invalidStyle");
+      return true;
+    } else {
+      password.classList.add("is-invalid", "invalidStyle");
+      return false;
+    }
   }
 }
 (function () {
@@ -31,14 +52,14 @@ function validatePassword() {
     form.addEventListener(
       "submit",
       function (event) {
-        if (!form.checkValidity() || !validateEmail() || !validatePassword()) {
+        if (
+          !form.checkValidity() ||
+          !validateEmail() ||
+          !validateUsername() ||
+          !validatePassword()
+        ) {
           event.preventDefault();
           event.stopPropagation();
-          document
-            .querySelectorAll(
-              ".form-control.is-valid.was-validated.form-control:valid"
-            )
-            .classList.add("is-invalid");
         }
         form.classList.add("was-validated");
       },
