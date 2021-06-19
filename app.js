@@ -29,8 +29,8 @@ const helmet = require('helmet');
 const { urls } = require('./utilities/url');
 const { response } = require('express');
 const MongoStore = require('connect-mongo');
-// process.env.dbUrl ||
-const dbUrl = process.env.dbUrl || 'mongodb://localhost:27017/Ahadith';
+// process.env.dbUrl || this will be on the next line
+const dbUrl = 'mongodb://localhost:27017/Ahadith';
 mongoose
   .connect(dbUrl, {
     useNewUrlParser: true,
